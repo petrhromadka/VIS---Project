@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Styles/home.css" />
+
+    <title>Programování webových aplikací</title>
+    <description>🔥 Podívejte se na web VŠB -> <a class="desc" href="https://www.vsb.cz/cs/">ZDE</a>🔥</description>
+    <script src="burger.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="component">
+      
+        <img class="image" src="Components/Images/pinguin.png" />
+      
+        <ul class="nav">
+          <li><a class="picker" href="default.asp">Home</a></li>
+          <span class="navspan">|</span>
+          <li><a class="picker" href="news.asp">News</a></li>
+          <span class="navspan">|</span>
+          <li><a class="picker" href="contact.asp">Contact</a></li>
+          <span class="navspan">|</span>
+          <li><a class="picker" href="about.asp">About</a></li>
+        </ul> 
+      
+        
+      </div>
+
+      <div class="Hero">
+        <h1 class="heroh1 ">Ochlaďte se s našimi lahodnými zmrzlinami, přivítá vás tučňák!</h1>
+        <button class="btn-shop">Obchod</button>
+        <button class="btn-sale">Slevy</button>
+
+      </div>
+    </header>
+    
+    <!-- Main hlavní část s formulářem -->
+    
+    <main>
+
+      <form>
+        <form method="get">
+          <label
+            >Name:
+            <input name="submitted-name" autocomplete="name" />
+          </label>
+          <button>Save</button>
+        </form>
+
+        <form method="post">
+          <label
+            >Name:
+            <input name="submitted-name" autocomplete="name" />
+          </label>
+          <button>Save</button>
+        </form>
+
+        <form class="potvrzeni" method="post">
+          <fieldset">
+            <legend>Do you agree to the terms?</legend>
+            <label><input type="radio" name="radio" value="yes" /> Yes</label>
+            <label><input type="radio" name="radio" value="no" /> No</label>
+          </fieldset>
+        </form>
+      </form>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div><img src="http://placehold.it" /></div>
+      <h2>Footer tadyyyyyy :)</h2>
+      <div href="https://www.vsb.cz/cs/"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </footer>
+  </body>
+</html>
