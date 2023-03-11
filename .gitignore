@@ -2,6 +2,8 @@
 
 #Visual Studio and C#
 
+Api/app.config
+
 # User-specific files
 *.rsuser
 *.suo

@@ -12,6 +12,6 @@ C:\Users\CZTOKAR1\Desktop\Personal\School\VIS---Project\Api\CinemaApi\CinemaApi.
 C:\Users\CZTOKAR1\Desktop\Personal\School\VIS---Project\Api\CinemaApi\CinemaApi.Entities\obj\Debug\net6.0\CinemaApi.Entities.pdb
 C:\Users\CZTOKAR1\Desktop\Personal\School\VIS---Project\Api\CinemaApi\CinemaApi.Entities\obj\Debug\net6.0\CinemaApi.Entities.genruntimeconfig.cache
 C:\Users\CZTOKAR1\Desktop\Personal\School\VIS---Project\Api\CinemaApi\CinemaApi.Entities\obj\Debug\net6.0\ref\CinemaApi.Entities.dll
-C:\Users\CZTOKAR1\Desktop\Personal\School\VIS---Project\Api\CinemaApi\CinemaApi.Entities\bin\Debug\net6.0\CinemaApi.Entities.dll.config
 C:\Users\CZTOKAR1\Desktop\Personal\School\VIS---Project\Api\CinemaApi\CinemaApi.Entities\obj\Debug\net6.0\CinemaApi.Entities.Migrations.InitialCreate.resources
 C:\Users\CZTOKAR1\Desktop\Personal\School\VIS---Project\Api\CinemaApi\CinemaApi.Entities\obj\Debug\net6.0\CinemaApi.Entities.csproj.GenerateResource.cache
+C:\Users\CZTOKAR1\Desktop\Personal\School\VIS---Project\Api\CinemaApi\CinemaApi.Entities\obj\Debug\net6.0\CinemaApi.Entities.Migrations.AddMovieForeignKeyToEventTable.resources

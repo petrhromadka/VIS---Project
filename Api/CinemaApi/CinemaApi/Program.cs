@@ -1,3 +1,5 @@
+using CinemaApi.Entities.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +16,12 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+using (var dbContext = new CinemaApiContext())
+{
+    dbContext.Database.CreateIfNotExists();
+    dbContext.SaveChanges();
 }
 
 app.UseHttpsRedirection();
