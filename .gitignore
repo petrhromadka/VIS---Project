@@ -2,8 +2,6 @@
 
 #Visual Studio and C#
 
-Api/app.config
-
 # User-specific files
 *.rsuser
 *.suo
@@ -389,3 +387,4 @@ FodyWeavers.xsd
 *.sln.iml
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#VisualStudio
+Api/CinemaApi/CinemaApi/app.config
