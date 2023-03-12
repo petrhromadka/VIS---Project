@@ -15,12 +15,12 @@ namespace CinemaApi.Repository.Movie
 
         public IEnumerable<Movie> GetAllMovies()
         {
-            return _context.Movies.ToList();
+            return _context.Movies.Include("Events").ToList();
         }
 
         public Movie? GetMovieById(int id)
         {
-            return _context.Movies.FirstOrDefault(movie => movie.Id == id);
+            return _context.Movies.Include("Events").FirstOrDefault(movie => movie.Id == id);
         }
     }
 }

@@ -1,3 +1,5 @@
+using CinemaApi.Entities.Context;
+using CinemaApi.Entities.Mock;
 using CinemaApi.Repository.Movie;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +20,16 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+
+using (var context = new CinemaApiContext())
+{
+    // Temporary mocking of movies
+    if (!context.Database.Exists())
+    {
+        context.Movies.AddRange(Mocker.GetMovies());
+        context.SaveChanges();
+    }
 }
 
 app.UseHttpsRedirection();
