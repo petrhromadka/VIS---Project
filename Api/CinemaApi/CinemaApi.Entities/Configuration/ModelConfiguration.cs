@@ -69,7 +69,7 @@ namespace CinemaApi.Entities.Configuration
             modelBuilder.Entity<Movie>()
                 .Property(movie => movie.Description)
                 .HasColumnOrder(7)
-                .HasMaxLength(700)
+                .HasMaxLength(3000)
                 .IsOptional();
         }
     }
