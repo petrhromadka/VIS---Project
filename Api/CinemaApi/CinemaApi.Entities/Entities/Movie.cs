@@ -23,5 +23,7 @@ namespace CinemaApi.Entities.Entities
         public string Director { get; set; } = string.Empty;
         public string? Description { get; set; }
         public int? Rating { get; set; }
+
+        public ICollection<Event> Events { get; set; }
     }
 }

@@ -24,10 +24,6 @@ namespace CinemaApi.Entities.Configuration
                 .IsRequired();
 
             modelBuilder.Entity<Event>()
-                .Property(ev => ev.MovieId)
-                .IsRequired();
-
-            modelBuilder.Entity<Event>()
                 .Property(ev => ev.Price)
                 .IsRequired();
         }
