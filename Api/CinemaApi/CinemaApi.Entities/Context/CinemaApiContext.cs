@@ -12,7 +12,7 @@ namespace CinemaApi.Entities.Context
 
         public CinemaApiContext() : base("CinemaApi")
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<CinemaApiContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<CinemaApiContext>());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
