@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CinemaApi.Entities.Entities;
+﻿using CinemaApi.Entities.Entities;
 using CinemaApi.Entities.Enums;
 
 namespace CinemaApi.Entities.Mock
