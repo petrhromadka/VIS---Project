@@ -14,6 +14,7 @@ namespace CinemaApi.Controllers
             _movieRepository = movieRepository;
         }
 
+        [HttpGet("api/movies")]
         public IEnumerable<Movie> GetAllMovies()
         {
             return _movieRepository.GetAllMovies();
