@@ -1,4 +1,3 @@
-using CinemaApi.Repository.Event;
 using CinemaApi.Repository.Movie;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +9,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
 
 var app = builder.Build();
