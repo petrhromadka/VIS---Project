@@ -3,6 +3,7 @@
 public enum Genre
 {
     Action,
+    Cartoon,
     Comedy,
     Drama,
     Fantasy,
