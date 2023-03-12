@@ -1,4 +1,5 @@
-using CinemaApi.Entities.Context;
+using CinemaApi.Repository.Event;
+using CinemaApi.Repository.Movie;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IEventRepository, EventRepository>();
+builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -16,12 +20,6 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
-
-using (var dbContext = new CinemaApiContext())
-{
-    dbContext.Database.CreateIfNotExists();
-    dbContext.SaveChanges();
 }
 
 app.UseHttpsRedirection();
