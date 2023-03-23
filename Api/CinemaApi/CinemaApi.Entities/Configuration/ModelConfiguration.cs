@@ -10,6 +10,26 @@ namespace CinemaApi.Entities.Configuration
         {
             ConfigureEvents(modelBuilder);
             ConfigureMovies(modelBuilder);
+            ConfigureUsers(modelBuilder);
+        }
+
+        private static void ConfigureUsers(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .Property(u => u.Id)
+                .HasColumnOrder(1)
+                .IsRequired();
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.Username)
+                .HasColumnOrder(2)
+                .HasMaxLength(50)
+                .IsRequired();
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.Password)
+                .HasColumnOrder(3)
+                .IsRequired();
         }
 
         private static void ConfigureEvents(DbModelBuilder modelBuilder)

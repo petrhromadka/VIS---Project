@@ -8,6 +8,7 @@ namespace CinemaApi.Entities.Context
     {
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<Movie> Movies { get; set; }
+        public virtual DbSet<User> Users { get; set; }
 
 
         public CinemaApiContext() : base("CinemaApi")
