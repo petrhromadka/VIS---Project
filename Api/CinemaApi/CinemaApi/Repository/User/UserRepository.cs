@@ -22,8 +22,7 @@ namespace CinemaApi.Repository.User
             {
                 return new Result
                 {
-                    HasError = true,
-                    Message = MessageProvider.RegistrationFailed_MissingData,
+                    Message = MessageProvider.RegistrationFailed_MissingData(args.Username, args.Password),
                     Outcome = OutcomeProvider.Generic_MissingData
                 };
             }
@@ -35,8 +34,7 @@ namespace CinemaApi.Repository.User
             {
                 return new Result
                 {
-                    HasError = true,
-                    Message = MessageProvider.RegistrationFailed_UsernameTaken,
+                    Message = MessageProvider.RegistrationFailed_UsernameTaken(userToRegister.Username),
                     Outcome = OutcomeProvider.Registration_UsernameTaken
                 };
             }
@@ -46,20 +44,40 @@ namespace CinemaApi.Repository.User
 
             return new Result
             {
-                HasError = false,
-                Message = MessageProvider.Registration_Success,
+                Message = MessageProvider.Registration_Success(userToRegister.Username),
                 Outcome = OutcomeProvider.Registration_Success
             };
         }
 
         public Result LoginUser(UserArgs args)
         {
-            throw new NotImplementedException();
+            var user = _context.Users.AsEnumerable()
+                                     .FirstOrDefault(x => CredentialsMatched(args, x));
+
+            if (user == null)
+            {
+                return new Result
+                {
+                    Message = MessageProvider.Login_Failed,
+                    Outcome = OutcomeProvider.Login_Failed
+                };
+            }
+
+
+            return new Result
+            {
+                Message = MessageProvider.Login_Success(user.Username),
+                Outcome = OutcomeProvider.Login_Success,
+            };
         }
 
+        #region Helpers
+        private static bool CredentialsMatched(UserArgs args, User x)
+        {
+            return x.Username == args.Username &&
+                   x.Password == args.Password;
+        }
 
-
-        #region Entity arg creation
 
         private static User CreateUserEntityFromUserArgs(UserArgs args)
         {

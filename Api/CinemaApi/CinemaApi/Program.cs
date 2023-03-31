@@ -36,8 +36,6 @@ using (var context = new CinemaApiContext())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
