@@ -27,8 +27,13 @@ namespace CinemaApi.Entities.Configuration
                 .IsRequired();
 
             modelBuilder.Entity<User>()
-                .Property(u => u.Password)
+                .Property(u => u.PasswordHash)
                 .HasColumnOrder(3)
+                .IsRequired();
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.PasswordSalt)
+                .HasColumnOrder(4)
                 .IsRequired();
         }
 

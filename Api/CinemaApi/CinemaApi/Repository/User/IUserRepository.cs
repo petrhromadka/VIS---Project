@@ -1,11 +1,11 @@
-﻿using CinemaApi.Repository.User.Data;
+﻿using CinemaApi.Requests;
 using CinemaApi.Results;
 
 namespace CinemaApi.Repository.User
 {
     public interface IUserRepository
     {
-        Result RegisterUser(UserArgs args);
-        Result LoginUser(UserArgs args);
+        Task<Result> RegisterUser(UserRequest request);
+        Task<Result> LoginUser(UserRequest request);
     }
 }

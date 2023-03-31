@@ -1,5 +1,5 @@
 ﻿using CinemaApi.Repository.User;
-using CinemaApi.Repository.User.Data;
+using CinemaApi.Requests;
 using CinemaApi.Results;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,18 +15,18 @@ namespace CinemaApi.Controllers
             _userRepository = userRepository;
         }
 
-        [HttpPost("api/users/login")]
-        public Result LoginUser(UserArgs args)
+        [HttpPost("auth/login")]
+        public Result LoginUser(UserRequest request)
         {
-            var result = _userRepository.LoginUser(args);
-            return result;
+            var result = _userRepository.LoginUser(request);
+            return result.Result;
         }
 
-        [HttpPost("api/users/register")]
-        public Result RegisterUser(UserArgs args)
+        [HttpPost("auth/register")]
+        public Result RegisterUser(UserRequest request)
         {
-            var result = _userRepository.RegisterUser(args);
-            return result;
+            var result = _userRepository.RegisterUser(request);
+            return result.Result;
         }
     }
 }
