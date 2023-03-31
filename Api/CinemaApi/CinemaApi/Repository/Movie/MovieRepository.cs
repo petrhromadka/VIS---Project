@@ -1,4 +1,5 @@
-﻿using CinemaApi.Entities.Context;
+﻿using CinemaApi.Entities;
+using CinemaApi.Entities.Context;
 
 namespace CinemaApi.Repository.Movie
 {
@@ -13,14 +14,18 @@ namespace CinemaApi.Repository.Movie
             _context = new CinemaApiContext();
         }
 
-        public IEnumerable<Movie> GetAllMovies()
+        public Task<IEnumerable<Movie>> GetAllMovies()
         {
-            return _context.Movies.Include("Events").ToList();
+            var movies = _context.Movies.Include(TableNames.EventsTable)
+                                                        .AsEnumerable();
+
+            return Task.FromResult(movies);
         }
 
-        public Movie? GetMovieById(int id)
+        public Task<Movie?> GetMovieById(int id)
         {
-            return _context.Movies.Include("Events").FirstOrDefault(movie => movie.Id == id);
+            var movie = _context.Movies.Include(TableNames.EventsTable).FirstOrDefault(movie => movie.Id == id);
+            return Task.FromResult(movie);
         }
     }
 }

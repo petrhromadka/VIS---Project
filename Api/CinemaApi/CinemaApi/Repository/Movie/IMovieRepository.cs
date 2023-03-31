@@ -4,7 +4,7 @@
 
     public interface IMovieRepository
     {
-        IEnumerable<Movie> GetAllMovies();
-        Movie? GetMovieById(int id);
+        Task<IEnumerable<Movie>> GetAllMovies();
+        Task<Movie?> GetMovieById(int id);
     }
 }

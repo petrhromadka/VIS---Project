@@ -17,13 +17,15 @@ namespace CinemaApi.Controllers
         [HttpGet("api/movies")]
         public IEnumerable<Movie> GetAllMovies()
         {
-            return _movieRepository.GetAllMovies();
+            var movies = _movieRepository.GetAllMovies();
+            return movies.Result;
         }
 
         [HttpGet("api/movies/{id}")]
         public Movie? GetMovieById(int id)
         {
-            return _movieRepository.GetMovieById(id);
+            var movie = _movieRepository.GetMovieById(id);
+            return movie.Result;
         }
 
     }

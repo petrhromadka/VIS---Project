@@ -18,15 +18,15 @@ namespace CinemaApi.Entities.Mock
                     Director = "Peyton Reed",
                     Events = new List<Event>()
                     {
-                        new Event() { DateTime = new DateTime(2023, 3, 13, 14, 20, 0), Price = 180 },
-                        new Event() { DateTime = new DateTime(2023, 3, 13, 17, 10, 0), Price = 180 },
-                        new Event() { DateTime = new DateTime(2023, 3, 13, 20, 30, 0), Price = 180 },
-                        new Event() { DateTime = new DateTime(2023, 3, 14, 14, 20, 0), Price = 180 },
-                        new Event() { DateTime = new DateTime(2023, 3, 14, 17, 10, 0), Price = 180 },
-                        new Event() { DateTime = new DateTime(2023, 3, 14, 20, 30, 0), Price = 180 },
-                        new Event() { DateTime = new DateTime(2023, 3, 15, 14, 20, 0), Price = 180 },
-                        new Event() { DateTime = new DateTime(2023, 3, 15, 17, 10, 0), Price = 180 },
-                        new Event() { DateTime = new DateTime(2023, 3, 15, 21, 40, 0), Price = 180 },
+                        new() { DateTime = new DateTime(2023, 3, 13, 14, 20, 0), Price = 180 },
+                        new() { DateTime = new DateTime(2023, 3, 13, 17, 10, 0), Price = 180 },
+                        new() { DateTime = new DateTime(2023, 3, 13, 20, 30, 0), Price = 180 },
+                        new() { DateTime = new DateTime(2023, 3, 14, 14, 20, 0), Price = 180 },
+                        new() { DateTime = new DateTime(2023, 3, 14, 17, 10, 0), Price = 180 },
+                        new() { DateTime = new DateTime(2023, 3, 14, 20, 30, 0), Price = 180 },
+                        new() { DateTime = new DateTime(2023, 3, 15, 14, 20, 0), Price = 180 },
+                        new() { DateTime = new DateTime(2023, 3, 15, 17, 10, 0), Price = 180 },
+                        new() { DateTime = new DateTime(2023, 3, 15, 21, 40, 0), Price = 180 },
                     }
                 },
                 new Movie()
@@ -38,9 +38,9 @@ namespace CinemaApi.Entities.Mock
                     Director = "Guillaume Canet",
                     Events = new List<Event>()
                     {
-                        new Event() { DateTime = new DateTime(2023, 3, 13, 15, 10, 0), Price = 160 },
-                        new Event() { DateTime = new DateTime(2023, 3, 14, 15, 10, 0), Price = 160 },
-                        new Event() { DateTime = new DateTime(2023, 3, 15, 15, 10, 0), Price = 160 },
+                        new() { DateTime = new DateTime(2023, 3, 13, 15, 10, 0), Price = 160 },
+                        new() { DateTime = new DateTime(2023, 3, 14, 15, 10, 0), Price = 160 },
+                        new() { DateTime = new DateTime(2023, 3, 15, 15, 10, 0), Price = 160 },
                     }
                 },
 
