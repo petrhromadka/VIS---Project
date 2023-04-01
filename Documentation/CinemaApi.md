@@ -1,5 +1,59 @@
 # Seznam jednotlivých API enpointů
 
+# Auth
+
+Slouží pro přihlašování a registraci uživatelských účtů. Úspěšná registrace nebo úspěšně přihlášení vygeneruje token pro přistupování k vybraným API endpointům.
+
+| Request Url      | Typ | Popis |
+| ----------- | ----------- | ----------- |
+| https://localhost:3333/auth/login    | **POST** |  Provede přihlášení uživatele s pomocí zadaných údajů.  |
+| https://localhost:3333/auth/register  | **POST** | Provede registraci uživatele s pomocí zadaných údajů.        |
+<br />
+## Příklad přihlášení uživatele
+
+Pro přihlášení uživatele zavoláme na endpoint https://localhost:3333/auth/login s následujicími daty.
+
+```
+{
+    "Username": "Franta",
+    "Heslo123": "heslo123"
+}
+```
+
+Existuje-li uživatel v databázi, API provede kontrolu hesla. V případě, že hesla sedí, uživateli se vygeneruje authentication token, se kterým bude moci přistupovat k vybraným endpointům. Neshoda hesel token nevytvoří (uživatel nebude přihlášen).
+
+## Vrácená data při úspěšném přihlášení
+
+```
+{
+    "message": "Logged in successfully",
+    "token": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVG9iacOhxaEiLCJleHAiOjE2ODA0MzQxNzF9.CzcMiRht4hjf7ennpil7jJV4GrOa-ERpsOkS5_xusiFWlTDHgdkpKm16lSvx4Oc-GgGpLvMnDRbBhhaRgkh__Q"
+}
+```
+<br /><br />
+## Příklad registrace uživatele
+
+Pro přihlášení uživatele zavoláme na endpoint https://localhost:3333/auth/register s následujicími daty.
+
+```
+{
+    "Username": "Franta",
+    "Heslo123": "heslo123"
+}
+```
+
+Neexistuje-li uživatel v databázi, API provede jeho registraci.
+
+## Vrácená data při úspěšné registraci
+
+```
+{
+    "message": "User successfully registered",
+    "token": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRnJhbnRhIiwiZXhwIjoxNjgwNDM0MzU1fQ.08GZ4tLvaL9dci3LL5VadwStZuoHbIXYRooDxxmBjV8ZUQrGmwykXASyHWDpuOXGVUPSJbrP2BDGzbZsrfR_Yw"
+}
+```
+<br /><br /><br />
+
 # Movies
 
 Slouží pro výběr dat o filmech a jejich promítání.
@@ -10,6 +64,8 @@ Slouží pro výběr dat o filmech a jejich promítání.
 | ----------- | ----------- | ----------- |
 | https://localhost:3333/api/movies    | **GET** |  Vybere všechny filmy z databáze a vrátí jejich data.  |
 | https://localhost:3333/api/movies/{id}  | **GET** | Vybere jeden film pomocí ID parametru a vrátí data o něm.        |
+
+<br />
 
 ## Příklad vrácených dat
 
@@ -73,6 +129,7 @@ Vrácená data po zavolání na endpoint https://localhost:3333/api/movies/1.
     ]
 }
 ```
+<br />
 
 ## Popis vrácených dat
 
