@@ -16,7 +16,7 @@ namespace CinemaApi.Entities.Mock
                     Genre = Genre.Action,
                     Duration = 125,
                     Director = "Peyton Reed",
-                    Thumbnail = "image.pmgstatic.com/cache/resized/w1989/files/images/film/posters/167/104/167104672_124085.jpg",
+                    Thumbnail = "https://image.pmgstatic.com/cache/resized/w1989/files/images/film/posters/167/104/167104672_124085.jpg",
                     Events = new List<Event>
                     {
                         new() { DateTime = new DateTime(2023, 3, 13, 14, 20, 0), Price = 180 },
