@@ -99,6 +99,12 @@ namespace CinemaApi.Entities.Configuration
                 .HasMaxLength(3000)
                 .IsOptional();
 
+            modelBuilder.Entity<Movie>()
+                .Property(movie => movie.Thumbnail)
+                .HasColumnOrder(8)
+                .HasMaxLength(200)
+                .IsOptional();
+
             modelBuilder.Entity<User>()
                 .ToTable(TableNames.MoviesTable);
         }

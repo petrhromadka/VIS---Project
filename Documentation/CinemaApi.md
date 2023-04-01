@@ -80,6 +80,7 @@ Vrácená data po zavolání na endpoint https://localhost:3333/api/movies/1.
 "director": "Peyton Reed",
 "description": null,
 "rating": 12,
+"thumbnail": "https://image.pmgstatic.com/cache/resized/w1989/files/images/film/posters/167/104/167104672_124085.jpg"
 "events": [
         {
         "id": 1,

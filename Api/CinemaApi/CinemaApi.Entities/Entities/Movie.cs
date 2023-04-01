@@ -13,6 +13,7 @@ namespace CinemaApi.Entities.Entities
      *  Actors - Jména herců
      *  Description - Popis filmu
      *  Rating - Věková přístupnost (minimální povolený věk pro sledování filmu)
+     *  Thumbnail - Plakát
      */
 
     public class Movie
@@ -24,6 +25,7 @@ namespace CinemaApi.Entities.Entities
         public string Director { get; set; } = string.Empty;
         public string? Description { get; set; }
         public int? Rating { get; set; }
+        public string Thumbnail { get; set; }
 
         public ICollection<Event> Events { get; set; }
     }
