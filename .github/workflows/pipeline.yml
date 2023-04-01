@@ -6,6 +6,11 @@ name: .NET
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - '**.cs'
+      - '**.csproj'
+      - '**.sln'
+      - '**.resx'
   pull_request:
     branches: [ "main" ]
 
