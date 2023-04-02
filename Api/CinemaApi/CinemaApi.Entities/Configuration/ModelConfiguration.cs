@@ -11,6 +11,7 @@ namespace CinemaApi.Entities.Configuration
             ConfigureEvents(modelBuilder);
             ConfigureMovies(modelBuilder);
             ConfigureUsers(modelBuilder);
+            ConfigureUserEvents(modelBuilder);
         }
 
         private static void ConfigureUsers(DbModelBuilder modelBuilder)
@@ -55,7 +56,12 @@ namespace CinemaApi.Entities.Configuration
                 .Property(ev => ev.Price)
                 .IsRequired();
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<Event>()
+                .Property(ev => ev.Hall)
+                .HasMaxLength(15)
+                .IsRequired();
+
+            modelBuilder.Entity<Event>()
                 .ToTable(TableNames.EventsTable);
         }
 
@@ -105,8 +111,19 @@ namespace CinemaApi.Entities.Configuration
                 .HasMaxLength(200)
                 .IsOptional();
 
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<Movie>()
                 .ToTable(TableNames.MoviesTable);
+        }
+
+        private static void ConfigureUserEvents(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<UserEvent>()
+                .Property(ue => ue.Id)
+                .HasColumnOrder(1)
+                .IsRequired();
+
+            modelBuilder.Entity<UserEvent>()
+                .ToTable(TableNames.UserEventsTable);
         }
     }
 }

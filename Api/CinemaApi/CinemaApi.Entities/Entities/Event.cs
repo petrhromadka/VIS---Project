@@ -7,5 +7,6 @@ namespace CinemaApi.Entities.Entities
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
         public int Price { get; set; }
+        public string Hall { get; set; }
     }
 }
