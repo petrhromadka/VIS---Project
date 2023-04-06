@@ -1,4 +1,5 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using System.Data.Entity;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -22,16 +23,18 @@ namespace CinemaApi.Repository.User
             _context = new CinemaApiContext();
         }
 
-        public Task<Result> RegisterUser(UserRequest request)
+        public async Task<Result> RegisterUser(UserRequest request)
         {
-            var isUsernameTaken = _context.Users.AsEnumerable().Any(u => string.Equals(u.Username, request.Username, StringComparison.InvariantCultureIgnoreCase));
+            var users = _context.Users;
+
+            var isUsernameTaken = await users.AnyAsync(u => u.Username.ToLower() == request.Username.ToLower());
             if (isUsernameTaken)
             {
-                return Task.FromResult<Result>(new AuthResult
+                return new AuthResult
                 {
                     Token = null,
                     Message = $"Username {request.Username} is already taken"
-                });
+                };
             }
 
             CreatePasswordHash(request.Password, out byte[] passwordHash, out byte[] passwordSalt);
@@ -44,27 +47,29 @@ namespace CinemaApi.Repository.User
             };
 
             _context.Users.Add(newUser);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
-            return Task.FromResult<Result>(new AuthResult { Message = "User successfully registered", Token = CreateToken(request) });
+            return new AuthResult { Message = "User successfully registered", Token = CreateToken(request) };
         }
 
-        public Task<Result> LoginUser(UserRequest request)
+        public async Task<Result> LoginUser(UserRequest request)
         {
-            var usernameFound = _context.Users.AsEnumerable().Any(x => x.Username == request.Username);
+            var users =  _context.Users.AsQueryable();
+
+            var usernameFound = await users.AnyAsync(x => x.Username == request.Username);
             if (!usernameFound)
             {
-                return Task.FromResult<Result>(new AuthResult { Message = $"Username {request.Username} was not found.", Token = null, });
+                return new AuthResult { Message = $"Username {request.Username} was not found.", Token = null };
             }
 
-            var user = _context.Users.First(x => x.Username == request.Username);
+            var user = await users.FirstAsync(x => x.Username == request.Username);
 
             if (!PasswordHashVerified(request.Password, user.PasswordHash, user.PasswordSalt))
             {
-                return Task.FromResult<Result>(new AuthResult { Message = "Wrong password", Token = null, });
+                return new AuthResult { Message = "Wrong password", Token = null };
             }
 
-            return Task.FromResult<Result>(new AuthResult { Message = "Logged in successfully", Token = CreateToken(request) });
+            return new AuthResult { Message = "Logged in successfully", Token = CreateToken(request) };
         }
 
         #region Helper methods
