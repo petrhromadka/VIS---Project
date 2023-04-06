@@ -1,3 +1,4 @@
+using System.Data.Entity;
 using CinemaApi.Entities.Context;
 using CinemaApi.Entities.Mock;
 using CinemaApi.Repository.Movie;
@@ -29,8 +30,13 @@ using (var context = new CinemaApiContext())
     // Temporary mocking of movies
     if (!context.Database.Exists())
     {
-        context.Movies.AddRange(Mocker.GetMovies());
-        context.SaveChanges();
+        context.Halls.AddRange(Mocker.GetHalls());
+        await context.SaveChangesAsync();
+
+        var halls = await context.Halls.ToListAsync();
+
+        context.Movies.AddRange(Mocker.GetMovies(halls));
+        await context.SaveChangesAsync();
     }
 }
 

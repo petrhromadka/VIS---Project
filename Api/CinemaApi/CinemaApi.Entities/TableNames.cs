@@ -6,5 +6,7 @@
         public static string UsersTable = "Users";
         public static string MoviesTable = "Movies";
         public static string UserEventsTable = "UserEvents";
+        public static string SeatsTable = "Seats";
+        public static string HallsTable = "Halls";
     }
 }

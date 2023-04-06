@@ -12,6 +12,51 @@ namespace CinemaApi.Entities.Configuration
             ConfigureMovies(modelBuilder);
             ConfigureUsers(modelBuilder);
             ConfigureUserEvents(modelBuilder);
+            ConfigureSeats(modelBuilder);
+            ConfigureHalls(modelBuilder);
+        }
+
+        private static void ConfigureHalls(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Hall>()
+                .Property(h => h.Id)
+                .HasColumnOrder(1)
+                .IsRequired();
+
+            modelBuilder.Entity<Hall>()
+                .Property(h => h.Name)
+                .HasColumnOrder(2)
+                .HasMaxLength(15)
+                .IsRequired();
+
+            modelBuilder.Entity<Hall>()
+                .ToTable(TableNames.HallsTable);
+        }
+
+        private static void ConfigureSeats(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Seat>()
+                .Property(s => s.Id)
+                .HasColumnOrder(1)
+                .IsRequired();
+
+            modelBuilder.Entity<Seat>()
+                .Property(s => s.Row)
+                .HasColumnOrder(2)
+                .IsRequired();
+
+            modelBuilder.Entity<Seat>()
+                .Property(s => s.SeatNumber)
+                .HasColumnOrder(3)
+                .IsRequired();
+
+            modelBuilder.Entity<Seat>()
+                .Property(s => s.IsTaken)
+                .HasColumnOrder(4)
+                .IsRequired();
+
+            modelBuilder.Entity<Seat>()
+                .ToTable(TableNames.SeatsTable);
         }
 
         private static void ConfigureUsers(DbModelBuilder modelBuilder)
@@ -54,11 +99,6 @@ namespace CinemaApi.Entities.Configuration
 
             modelBuilder.Entity<Event>()
                 .Property(ev => ev.Price)
-                .IsRequired();
-
-            modelBuilder.Entity<Event>()
-                .Property(ev => ev.Hall)
-                .HasMaxLength(15)
                 .IsRequired();
 
             modelBuilder.Entity<Event>()
