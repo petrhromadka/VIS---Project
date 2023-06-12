@@ -10,8 +10,6 @@ namespace CinemaApi.Entities.Configuration
         {
             ConfigureEvents(modelBuilder);
             ConfigureMovies(modelBuilder);
-            ConfigureUsers(modelBuilder);
-            ConfigureUserEvents(modelBuilder);
             ConfigureSeats(modelBuilder);
             ConfigureHalls(modelBuilder);
         }
@@ -57,33 +55,6 @@ namespace CinemaApi.Entities.Configuration
 
             modelBuilder.Entity<Seat>()
                 .ToTable(TableNames.SeatsTable);
-        }
-
-        private static void ConfigureUsers(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>()
-                .Property(u => u.Id)
-                .HasColumnOrder(1)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.Username)
-                .HasColumnOrder(2)
-                .HasMaxLength(50)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.PasswordHash)
-                .HasColumnOrder(3)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .Property(u => u.PasswordSalt)
-                .HasColumnOrder(4)
-                .IsRequired();
-
-            modelBuilder.Entity<User>()
-                .ToTable(TableNames.UsersTable);
         }
 
         private static void ConfigureEvents(DbModelBuilder modelBuilder)
@@ -153,17 +124,6 @@ namespace CinemaApi.Entities.Configuration
 
             modelBuilder.Entity<Movie>()
                 .ToTable(TableNames.MoviesTable);
-        }
-
-        private static void ConfigureUserEvents(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<UserEvent>()
-                .Property(ue => ue.Id)
-                .HasColumnOrder(1)
-                .IsRequired();
-
-            modelBuilder.Entity<UserEvent>()
-                .ToTable(TableNames.UserEventsTable);
         }
     }
 }
