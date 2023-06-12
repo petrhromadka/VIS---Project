@@ -40,7 +40,6 @@
                                 </p>
                                 <p class="text-gray-500 dark:text-gray-400">{movie.genre} • {movie.duration} min</p>
                                 <p class="mt-2 text-gray-500 dark:text-gray-400">Režie: {movie.director}</p>
-                                <p class="mt-2 text-gray-500 dark:text-gray-400">{movie.description}</p>
                                 {#if movie.rating >= 18}
                                     <div class="mt-2 flex items-center text-sm text-gray-500 dark:text-gray-400">
                                         <span class="inline-block bg-red-200 text-red-800 px-2 py-1 rounded-full text-xs">18+</span>

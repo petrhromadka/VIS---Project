@@ -14,9 +14,10 @@ export let data;
       <div>
         <div class="text-base leading-7 text-gray-700 lg:max-w-lg">
           <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{data.title}</h1>
+          <p class="my-2 text-gray-400">Režie: {data.director} • {data.duration} min.</p>
           <Badges rating={data.rating} genre={data.genre}/>
           <div class="max-w-xl">
-            <p class="mt-6">Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.</p>
+            <p class="mt-6">{data.description}</p>
           </div>
         </div>
       </div>
