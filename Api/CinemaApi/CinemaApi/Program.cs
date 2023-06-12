@@ -2,7 +2,6 @@ using System.Data.Entity;
 using CinemaApi.Entities.Context;
 using CinemaApi.Entities.Mock;
 using CinemaApi.Repository.Movie;
-using CinemaApi.Repository.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +13,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IMovieRepository, MovieRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddCors(options =>
 {
