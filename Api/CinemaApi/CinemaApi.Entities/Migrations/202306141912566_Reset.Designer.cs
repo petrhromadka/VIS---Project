@@ -7,13 +7,13 @@ namespace CinemaApi.Entities.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class RemovedUserEntities : IMigrationMetadata
+    public sealed partial class Reset : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RemovedUserEntities));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Reset));
         
         string IMigrationMetadata.Id
         {
-            get { return "202306121728384_RemovedUserEntities"; }
+            get { return "202306141912566_Reset"; }
         }
         
         string IMigrationMetadata.Source

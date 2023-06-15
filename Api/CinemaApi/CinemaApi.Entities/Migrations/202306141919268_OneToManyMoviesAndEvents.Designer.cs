@@ -7,13 +7,13 @@ namespace CinemaApi.Entities.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class OneToManyMoviesAndEvents : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(OneToManyMoviesAndEvents));
         
         string IMigrationMetadata.Id
         {
-            get { return "202303111202396_InitialCreate"; }
+            get { return "202306141919268_OneToManyMoviesAndEvents"; }
         }
         
         string IMigrationMetadata.Source

@@ -17,16 +17,16 @@ namespace CinemaApi.Repository.Movie
 
         public async Task<IEnumerable<Movie>> GetAllMovies()
         {
-            var movies = await _context.Movies.Include(TableNames.EventsTable)
-                                                        .ToListAsync();
+            var movies = await _context.Movies.ToListAsync();
             return movies;
         }
 
         public async Task<Movie?> GetMovieById(int id)
         {
-            var movie = await _context.Movies.Include(TableNames.EventsTable)
-                                             .AsQueryable()
+            var movie = await _context.Movies.Include(m => m.Events.Select(e => e.Hall))
+                                              .AsQueryable()
                                              .FirstOrDefaultAsync(movie => movie.Id == id);
+
             return movie;
         }
     }

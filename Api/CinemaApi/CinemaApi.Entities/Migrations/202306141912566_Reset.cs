@@ -3,10 +3,23 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddSeatingPlan : DbMigration
+    public partial class Reset : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Events",
+                c => new
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    DateTime = c.DateTime(nullable: false),
+                    Price = c.Int(nullable: false),
+                    Hall_Id = c.Int(),
+                })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Halls", t => t.Hall_Id)
+                .Index(t => t.Hall_Id);
+
             CreateTable(
                 "dbo.Halls",
                 c => new
@@ -30,26 +43,33 @@
                 .ForeignKey("dbo.Halls", t => t.Hall_Id)
                 .Index(t => t.Hall_Id);
 
-            AddColumn("dbo.Events", "Hall_Id", c => c.Int());
-            AddColumn("dbo.UserEvents", "Seat_Id", c => c.Int());
-            CreateIndex("dbo.Events", "Hall_Id");
-            CreateIndex("dbo.UserEvents", "Seat_Id");
-            AddForeignKey("dbo.Events", "Hall_Id", "dbo.Halls", "Id");
-            AddForeignKey("dbo.UserEvents", "Seat_Id", "dbo.Seats", "Id");
+            CreateTable(
+                "dbo.Movies",
+                c => new
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    Title = c.String(nullable: false, maxLength: 50),
+                    Genre = c.String(nullable: false),
+                    Duration = c.Int(nullable: false),
+                    Rating = c.Int(),
+                    Director = c.String(maxLength: 50),
+                    Description = c.String(maxLength: 3000),
+                    Thumbnail = c.String(maxLength: 200),
+                })
+                .PrimaryKey(t => t.Id);
+
         }
-        
+
         public override void Down()
         {
-            DropForeignKey("dbo.UserEvents", "Seat_Id", "dbo.Seats");
             DropForeignKey("dbo.Events", "Hall_Id", "dbo.Halls");
             DropForeignKey("dbo.Seats", "Hall_Id", "dbo.Halls");
-            DropIndex("dbo.UserEvents", new[] { "Seat_Id" });
             DropIndex("dbo.Seats", new[] { "Hall_Id" });
             DropIndex("dbo.Events", new[] { "Hall_Id" });
-            DropColumn("dbo.UserEvents", "Seat_Id");
-            DropColumn("dbo.Events", "Hall_Id");
+            DropTable("dbo.Movies");
             DropTable("dbo.Seats");
             DropTable("dbo.Halls");
+            DropTable("dbo.Events");
         }
     }
 }

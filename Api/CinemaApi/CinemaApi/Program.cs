@@ -39,12 +39,7 @@ using (var context = new CinemaApiContext())
     // Temporary mocking of movies
     if (!context.Database.Exists())
     {
-        context.Halls.AddRange(Mocker.GetHalls());
-        await context.SaveChangesAsync();
-
-        var halls = await context.Halls.ToListAsync();
-
-        context.Movies.AddRange(Mocker.GetMovies(halls));
+        context.Movies.AddRange(Mocker.GetMovies());
         await context.SaveChangesAsync();
     }
 }

@@ -9,8 +9,7 @@
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
-            ContextKey = "CinemaApi.Entities.Context.CinemaApiContext";
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(CinemaApi.Entities.Context.CinemaApiContext context)
