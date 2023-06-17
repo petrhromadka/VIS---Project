@@ -22,13 +22,11 @@
 	});
 
 	const selectEventUnsubscribe = selectedEvent.subscribe(value => {
-		console.log(value);
 		selectedEventStoreValue = value;
 	})
 
 	const selectedSeatsUnsubscribe = selectedSeats.subscribe(value => {
 		selectedSeatsStoreValue = value;
-		console.log(selectedSeatsStoreValue);
 		updateTotalPrice();
 	})
 
@@ -106,7 +104,6 @@
 	}
 
 	function getTimeOfEvent(inputDate) {
-		console.log(inputDate);
 		const date = new Date(inputDate);
 
 		const hour = date.getHours();

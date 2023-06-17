@@ -10,12 +10,11 @@
 	});
 
 	function fetchMovies() {
-		console.log("fetching movies");
+		console.log("Získávání filmů z databáze.");
 		fetch('https://localhost:3333/api/movies') 
 			.then((response) => response.json())
 			.then((data) => {
 				movies = data; 
-				console.log('Movies updated:', movies);
 
 				if (movies.length > 0) {
 					clearInterval(intervalId); 
