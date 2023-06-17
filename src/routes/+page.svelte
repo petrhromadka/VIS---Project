@@ -11,7 +11,7 @@
 
 	function fetchMovies() {
 		console.log("Získávání filmů z databáze.");
-		fetch('https://localhost:3333/api/movies') 
+		fetch('http://localhost:5000/api/movies') 
 			.then((response) => response.json())
 			.then((data) => {
 				movies = data; 

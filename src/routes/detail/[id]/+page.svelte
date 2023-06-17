@@ -67,7 +67,7 @@
 			return;
 		}
 
-		fetch("https://localhost:3333/api/reservation/create", {
+		fetch("http://localhost:5000/api/reservation/create", {
 			method: "POST",
 			body: JSON.stringify({
 				EventId: selectedEventStoreValue.id,
