@@ -63,6 +63,12 @@
 
 
 	function sendReservation(){
+
+		if(!customerName || !customerPhone){
+			alert("Zadejte povinné údaje!");
+			return;
+		}
+
 		fetch("https://localhost:3333/api/reservation/create", {
 			method: "POST",
 			body: JSON.stringify({
@@ -76,6 +82,10 @@
 			headers: {
     			"Content-type": "application/json; charset=UTF-8"
   			}
+		})
+		.finally(() => {
+			alert("Vstupenky rezervovány!");
+			window.location.href = "/";
 		})
 	}
 
@@ -178,7 +188,9 @@
 					<button
 						type="button"
 						on:click={() => {
-							proceedToCart = true;
+							if(!selectedSeatsStoreValue.length == 0){
+								proceedToCart = true;
+							}
 						}}
 						class="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 						>Hotovo</button
@@ -281,7 +293,7 @@
 		</div>
 
 		<div class="mt-8">
-			<button on:click="{sendReservation}" class="bg-indigo-600 text-white px-4 py-2 rounded-md">Odeslat rezervaci</button>
+			<button type="button" on:click="{sendReservation}" class="bg-indigo-600 text-white px-4 py-2 rounded-md">Odeslat rezervaci</button>
 		</div>
 	{/if}
 </div>
