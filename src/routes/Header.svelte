@@ -26,10 +26,7 @@
 	  <NavHamburger on:click={toggle} />
 	  <NavUl {hidden} class="flex">
 		<NavLi href="/" active={$page.url.pathname === '/'}>Home</NavLi>
-		<NavLi href="/cart" active={$page.url.pathname === '/cart'}>Rezervace</NavLi>
-		<NavLi href="/contact" active={$page.url.pathname === '/contact'}>Contact</NavLi>
 	  </NavUl> 
-	  <DarkMode />
 	</Navbar>
   </header>
   

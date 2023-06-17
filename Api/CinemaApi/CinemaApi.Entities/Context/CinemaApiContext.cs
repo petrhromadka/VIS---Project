@@ -10,6 +10,7 @@ namespace CinemaApi.Entities.Context
         public virtual DbSet<Movie> Movies { get; set; }
         public virtual DbSet<Hall> Halls { get; set; }
         public virtual DbSet<Seat> Seats { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
 
 
         public CinemaApiContext() : base("CinemaApi")

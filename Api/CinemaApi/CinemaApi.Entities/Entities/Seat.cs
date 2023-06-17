@@ -2,12 +2,10 @@
 {
     public class Seat
     {
-        public Seat(int row, int seatNumber)
+        public Seat()
         {
-            Row = row;
-            SeatNumber = seatNumber;
+            
         }
-
 
         public int Id { get; set; }
         public int Row { get; set; }

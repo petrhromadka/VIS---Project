@@ -1,7 +1,5 @@
 <script>
-	import { createEventDispatcher } from "svelte";
-
-	const dispatch = createEventDispatcher();
+	import {selectedEvent} from '../../stores.js';
 
     function getDateOfEvent(inputDate) {
 		const date = new Date(inputDate);
@@ -29,16 +27,13 @@
 		return formattedTime;
 	}
 
-	function showSeatSelect(movieEv){
-		dispatch('eventSelected', {
-    		data: {
-				eventTime: getEventTime(movieEv.dateTime),
-				eventDate: getDateOfEvent(movieEv.dateTime),
-				eventHall: movieEv.hall,
-				eventPrice: movieEv.price
-			}
-  		})
+	function storeSelectedEvent(eventSelected){
+		selectedEvent.update(se => {
+			se = eventSelected;
+			return se;
+		})
 	}
+
 
 	export let events;
 </script>
@@ -89,7 +84,7 @@
 				>{movieEvent.price} Kč</td
 			>
 			<td class="relative py-3.5 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-				<button on:click={showSeatSelect(movieEvent)}
+				<button on:click={storeSelectedEvent(movieEvent)}
 					type="button"
 					class="inline-flex items-center rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-white"
 					>Koupit vstupenky

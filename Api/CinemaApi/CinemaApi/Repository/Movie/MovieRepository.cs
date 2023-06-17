@@ -23,8 +23,8 @@ namespace CinemaApi.Repository.Movie
 
         public async Task<Movie?> GetMovieById(int id)
         {
-            var movie = await _context.Movies.Include(m => m.Events.Select(e => e.Hall))
-                                              .AsQueryable()
+            var movie = await _context.Movies.Include(m => m.Events.Select(e => e.Hall).Select(h => h.Seats))
+                                             .AsQueryable()
                                              .FirstOrDefaultAsync(movie => movie.Id == id);
 
             return movie;

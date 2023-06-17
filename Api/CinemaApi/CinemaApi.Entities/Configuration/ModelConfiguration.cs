@@ -12,6 +12,7 @@ namespace CinemaApi.Entities.Configuration
             ConfigureMovies(modelBuilder);
             ConfigureSeats(modelBuilder);
             ConfigureHalls(modelBuilder);
+            ConfigureReservations(modelBuilder);
         }
 
         private static void ConfigureHalls(DbModelBuilder modelBuilder)
@@ -28,7 +29,47 @@ namespace CinemaApi.Entities.Configuration
                 .IsRequired();
 
             modelBuilder.Entity<Hall>()
+                .HasMany(h => h.Seats);
+
+            modelBuilder.Entity<Hall>()
                 .ToTable(TableNames.HallsTable);
+        }
+
+        private static void ConfigureReservations(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Reservation>()
+                .Property(r => r.Id)
+                .HasColumnOrder(1)
+                .IsRequired();
+
+            modelBuilder.Entity<Reservation>()
+                .Property(r => r.CustomerName)
+                .HasColumnOrder(2)
+                .HasMaxLength(128)
+                .IsRequired();
+
+            modelBuilder.Entity<Reservation>()
+                .Property(r => r.CustomerEmail)
+                .HasColumnOrder(3)
+                .HasMaxLength(512)
+                .IsOptional();
+
+            modelBuilder.Entity<Reservation>()
+                .Property(r => r.CustomerPhone)
+                .HasColumnOrder(4)
+                .HasMaxLength(64)
+                .IsRequired();
+
+            modelBuilder.Entity<Reservation>()
+                .Property(r => r.TotalPrice)
+                .HasColumnOrder(5)
+                .IsRequired();
+
+            modelBuilder.Entity<Reservation>()
+                .Property(r => r.SeatReservations)
+                .HasColumnOrder(6)
+                .HasMaxLength(4096)
+                .IsRequired();
         }
 
         private static void ConfigureSeats(DbModelBuilder modelBuilder)
