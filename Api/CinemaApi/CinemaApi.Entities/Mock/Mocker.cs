@@ -68,7 +68,6 @@ namespace CinemaApi.Entities.Mock
                         new(new Hall("Sál 01"){Seats = GetSeatingPlan()}, 180, new DateTime(2023, 3, 19, 20, 0, 0)),
                     }
                 },
-
                 new()
                 {
                     Title = "Buď chlap!",
@@ -83,10 +82,100 @@ namespace CinemaApi.Entities.Mock
                         new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 180, new DateTime(2023, 3, 16, 18, 0, 0)),
                         new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 180, new DateTime(2023, 3, 17, 18, 0, 0)),
                         new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 180, new DateTime(2023, 3, 18, 20, 0, 0)),
-                        new(new Hall("Sál 02"), 180, new DateTime(2023, 3, 19, 18, 0, 0)),
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 180, new DateTime(2023, 3, 19, 18, 0, 0)),
                         new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 180, new DateTime(2023, 3, 20, 16, 0, 0)),
                     }
-                }
+                },
+                new()
+                {
+                    Title = "Flash",
+                    Rating = 12,
+                    Genre = Genre.Fantasy,
+                    Duration = 144,
+                    Director = "Andy Muschietti",
+                    Thumbnail = "https://cdn.shopify.com/s/files/1/0057/3728/3618/files/the-flash_y8ljd1y0_500x749.jpg?v=1685123345",
+                    Description = "Ezra Miller se představí v roli Barryho Allena alias Flashe, který ve vůbec prvním samostatném filmu o superhrdinovi DC překonává hranice svých superschopností. Barry Allen použije svou superrychlost, aby změnil minulost, ale jeho pokus o záchranu rodiny vytvoří svět bez superhrdinů a donutí ho závodit o život, aby zachránil budoucnost.",
+                    Events = new List<Event>()
+                    {
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 200, new DateTime(2023, 3, 19, 15, 0, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 200, new DateTime(2023, 3, 19, 18, 0, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 200, new DateTime(2023, 3, 19, 20, 30, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 200, new DateTime(2023, 3, 20, 14, 30, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 200, new DateTime(2023, 3, 20, 17, 0, 0)),
+                    }
+                },
+                new()
+                {
+                    Title = "Mezi živly",
+                    Rating = 0,
+                    Genre = Genre.Cartoon,
+                    Duration = 109,
+                    Director = "Peter Sohn",
+                    Thumbnail = "https://cdn.shopify.com/s/files/1/0057/3728/3618/files/elemental_kotj1x5n_480x.progressive.jpg?v=1684520589",
+                    Description = "Film Mezi živly od společností Disney a Pixar je originální celovečerní film odehrávající se ve Městě živlů, kde společně žijí živly ohně, vody, země a vzduchu. Snímek sleduje příběh Jiskry, temperamentní, vynalézavé a pro věc zapálené mladé ženy. Poté, co se Jiskra seznámí s veselým a zábavným mladíkem Vlhošem, který stále v něčem plave, začne zpochybňovat své zavedené představy o světě, ve kterém žijí.",
+                    Events = new List<Event>()
+                    {
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 140, new DateTime(2023, 3, 19, 15, 0, 0)),
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 140, new DateTime(2023, 3, 19, 18, 0, 0)),
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 140, new DateTime(2023, 3, 19, 20, 30, 0)),
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 140, new DateTime(2023, 3, 20, 14, 30, 0)),
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 140, new DateTime(2023, 3, 20, 17, 0, 0)),
+                    }
+                },
+                new()
+                {
+                    Title = "Rychle a zběsile 10",
+                    Rating = 12,
+                    Genre = Genre.Action,
+                    Duration = 141,
+                    Director = "Louis Leterrier",
+                    Thumbnail = "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/fast-x_cpjvnhui_480x.progressive.jpg?v=1676485311",
+                    Description = "V pátém díle série Dominic Toretto (Vin Diesel) se svou partou elegantně sejmul mocného brazilského narkobarona. Velkou úlohu v tom sehrály jeden most v Rio de Janeiro a obří sejf, který po něm Domovi parťáci táhli. Nikdo z nich neměl tušení, že svědkem celé události byl zločincův syn Dante (Jason Momoa).",
+                    Events = new List<Event>()
+                    {
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 21, 15, 0, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 21, 18, 0, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 21, 20, 30, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 22, 14, 30, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 22, 17, 0, 0)),
+                    }
+                },
+                new()
+                {
+                    Title = "TRANSFORMERS: PROBUZENÍ MONSTER",
+                    Rating = 12,
+                    Genre = Genre.Action,
+                    Duration = 127,
+                    Director = "Steven Caple Jr.",
+                    Thumbnail = "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/transformers_rise_of_the_beasts_ver3_480x.progressive.jpg?v=1680621376",
+                    Description = "Autoboti a Decepticoni nejsou jedinými Transformery, kteří se mezi námi skrývají. V hlubinách amazonského pralesa už tisícovky let tiše přežívá druh Maximals, který si jako pozemské krytí zvolil zástupce zvířecí říše. Bohužel se v naší sluneční soustavě objevila hrozba, která je původně vyštvala z jejich domoviny – Unicron, nemilosrdný požírač všeho živého. Příběh nových Transformers se odehrává v devadesátkách, v době, kdy Optimus Prime ještě nebyl ten pravý lídr ostřílený četnými bitvami na život a na smrt.",
+                    Events = new List<Event>()
+                    {
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 21, 15, 0, 0)),
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 21, 18, 0, 0)),
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 21, 20, 30, 0)),
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 22, 14, 30, 0)),
+                        new(new Hall("Sál 02") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 22, 17, 0, 0)),
+                    }
+                },
+                new()
+                {
+                    Title = "INDIANA JONES A NÁSTROJ OSUDU",
+                    Rating = 12,
+                    Genre = Genre.Action,
+                    Duration = 154,
+                    Director = "James Mangold",
+                    Thumbnail = "https://cdn.shopify.com/s/files/1/0057/3728/3618/products/scan032_926ec80d-52f7-4c16-906a-382777163daf_480x.progressive.jpg?v=1678290230",
+                    Description = "Na Oscara nominovaný Harrison Ford se ve snímku Indiana Jones a nástroj osudu naposledy vrací ve své ikonické roli pohotového a rafinovaného archeologa, aby prožil své poslední napínavé dobrodružství, které ho jako tradičně zavede do nejrůznějších koutů světa.",
+                    Events = new List<Event>()
+                    {
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 23, 15, 0, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 23, 18, 0, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 23, 20, 30, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 24, 14, 30, 0)),
+                        new(new Hall("Sál 01") { Seats = GetSeatingPlan() }, 170, new DateTime(2023, 3, 24, 17, 0, 0)),
+                    }
+                },
             };
         }
 
