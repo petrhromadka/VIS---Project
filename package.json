@@ -2,9 +2,9 @@
 	"name": "cinemapro",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --port 5173",
 		"build": "vite build",
-		"preview": "vite preview",
+		"preview": "vite preview --port 5173",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."
 	},
